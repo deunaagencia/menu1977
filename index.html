@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #7BBD67;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar img {
+            width: 80px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .section {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .section-buttons button {
+            background-color: #7BBD67;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .card-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5%;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+        }
+
+        .card img {
+            width: 40%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: left;
+            width: 60%;
+        }
+
+        .card-description {
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .card-price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .play-button {
+            background-color: #ff4d4d;
+            color: #fff;
+            border-radius: 50%;
+            padding: 8px;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="index.html">
+            <button id="volverButton" onclick="volver()">
+                <i class="material-icons">keyboard_arrow_left</i>
+            </button>
+        </a>
+
+        <img src="img/logo.png" alt="Logo">
+        <div class="navbar-title">Menu 1977</div>
+    </div>
+
+    <div class="button-container section-buttons">
+        <button onclick="mostrarSeccion('paraEmpezar')">Para Empezar</button>
+        <button onclick="mostrarSeccion('ensaladas')">Ensaladas</button>
+        <button onclick="mostrarSeccion('platos')">Platos</button>
+        <button onclick="mostrarSeccion('rissottos')">Rissottos</button>
+        <button onclick="mostrarSeccion('pastas')">Pastas</button>
+        <button onclick="mostrarSeccion('dietasEspeciales')">Dietas Especiales</button>
+        <button onclick="mostrarSeccion('menuInfantil')">Menú Infantil</button>
+        <button onclick="mostrarSeccion('postres')">Postres</button>
+        <button onclick="mostrarSeccion('bebidas')">Bebidas</button>
+        <button onclick="mostrarSeccion('otraCategoria')">Otra Categoría</button>
+    </div>
+
+    <div class="card-container" id="cardContainerParaEmpezar">
+        <div class="section" id="seccionActual">Para Empezar</div>
+       
+        
+            <!-- Empanadas Criollas -->
+            <div class="card">
+                <img src="img/restaurantes/menu1977/empacri.png" alt="Imagen de Empanadas Criollas">
+                <div class="card-content">
+                    <h3 class="card-title">Empanadas Criollas</h3>
+                    <p class="card-description">Fina y crujiente masa hojaldrada, con nuestro exquisito relleno de ternera. Opción sin carne con relleno de cuatro deliciosos quesos artesanales.</p>
+                    <p class="card-price">$2600</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Croquetas de calabaza y queso Brie -->
+            <div class="card">
+                <img src="img/restaurantes/croquetas_calabaza_queso_brie.jpg" alt="Imagen de Croquetas de calabaza y queso Brie">
+                <div class="card-content">
+                    <h3 class="card-title">Croquetas de calabaza y queso Brie</h3>
+                    <p class="card-description">Deliciosas croquetas con calabaza y queso Brie.</p>
+                    <p class="card-price">$2900</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Melanzane Parmiggiana -->
+            <div class="card">
+                <img src="img/restaurantes/melanzane_parmiggiana.jpg" alt="Imagen de Melanzane Parmiggiana">
+                <div class="card-content">
+                    <h3 class="card-title">Melanzane Parmiggiana</h3>
+                    <p class="card-description">Tradicional plato italiano con berenjenas salteadas en aceite de oliva, mozarella y salsa de tomates.</p>
+                    <p class="card-price">$3250</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Provoleta -->
+            <div class="card">
+                <img src="img/restaurantes/provoleta.jpg" alt="Imagen de Provoleta">
+                <div class="card-content">
+                    <h3 class="card-title">Provoleta</h3>
+                    <p class="card-description">Provoleta fundida, jamón serrano, rúcula, tomate contado, aceitunas negras y pesto.</p>
+                    <p class="card-price">$6950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Tortilla española -->
+            <div class="card">
+                <img src="img/restaurantes/tortilla_espanola.jpg" alt="Imagen de Tortilla española">
+                <div class="card-content">
+                    <h3 class="card-title">Tortilla española</h3>
+                    <p class="card-description">Papas, cebollas, chorizo colorado.</p>
+                    <p class="card-price">$4550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Morcilla a la chapa sobre tortilla -->
+            <div class="card">
+                <img src="img/restaurantes/morcilla_chapa_tortilla.jpg" alt="Imagen de Morcilla a la chapa sobre tortilla">
+                <div class="card-content">
+                    <h3 class="card-title">Morcilla a la chapa sobre tortilla</h3>
+                    <p class="card-description">Peras, salsa de morrones quemados al oliva y almendras crocantes.</p>
+                    <p class="card-price">$4750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Huevos rotos -->
+            <div class="card">
+                <img src="img/restaurantes/huevos_rotos.jpg" alt="Imagen de Huevos rotos">
+                <div class="card-content">
+                    <h3 class="card-title">Huevos rotos</h3>
+                    <p class="card-description">Huevos, jamón, papas fritas.</p>
+                    <p class="card-price">$4450</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Platos aquí -->
+        
+        </div>
+        
+    </div>
+
+    <div class="card-container" id="cardContainerEnsaladas">
+        <div class="section" id="seccionActual">Ensaladas</div>
+       
+            <!-- Ensalada criolla mixta especial -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_criolla_mixta.jpg" alt="Imagen de Ensalada criolla mixta especial">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada criolla mixta especial</h3>
+                    <p class="card-description">Mezcla de hojas de lechuga criolla y lechuga mantecosa, tomates redondos y tomates cherry, cebolla blanca y morada, saborizada a gusto con sal marina, vinagre de vino y aceite de oliva.</p>
+                    <p class="card-price">$4500</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ensalada César tradicional -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_cesar_tradicional.jpg" alt="Imagen de Ensalada César tradicional">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada César tradicional</h3>
+                    <p class="card-description">Lechuga romana y croûtons tostados con jugo de limón, aceite de oliva, mostaza de Dijon, queso parmesano, pimienta negra y aderezo de salsa césar.</p>
+                    <p class="card-price">$4500</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ensalada de verdes, tomates confitados y hongos del sur -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_verdes_tomates_hongos.jpg" alt="Imagen de Ensalada de verdes, tomates confitados y hongos del sur">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada de verdes, tomates confitados y hongos del sur</h3>
+                    <p class="card-description">Selección de hojas verdes de estación, tomates confitados en aceite de oliva, ajo, tomillo y romero con hongos patagónicos.</p>
+                    <p class="card-price">$4950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ensalada Caesar con pollo -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_caesar_pollo.jpg" alt="Imagen de Ensalada Caesar con pollo">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada Caesar con pollo</h3>
+                    <p class="card-description">Mezcla de hojas verdes con tiernos trozos de pollo grillado, croûtons de pan saborizados al horno, queso parmesano y aderezo de salsa caesar.</p>
+                    <p class="card-price">$4950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ensalada Caesar con camarones -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_caesar_camarones.jpg" alt="Imagen de Ensalada Caesar con camarones">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada Caesar con camarones</h3>
+                    <p class="card-description">Hojas verdes con camarones, croutons de pan saborizados al horno, queso parmesano y aderezo de salsa caesar.</p>
+                    <p class="card-price">$5950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ensalada de rúcula y Parmesano -->
+            <div class="card">
+                <img src="img/restaurantes/ensalada_rucula_parmesano.jpg" alt="Imagen de Ensalada de rúcula y Parmesano">
+                <div class="card-content">
+                    <h3 class="card-title">Ensalada de rúcula y Parmesano</h3>
+                    <p class="card-description">Selección de hojas de rúcula orgánica con finas lajas de queso parmesano.</p>
+                    <p class="card-price">$4500</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Ensaladas aquí -->
+        
+        </div>
+        
+    </div>
+
+    <div class="card-container" id="cardContainerPlatos">
+        <div class="section" id="seccionActual">Platos</div>
+        <!-- Tarjetas de Platos aquí -->
+        
+        
+            <!-- Vacío braseado de ternera -->
+            <div class="card">
+                <img src="img/restaurantes/vacio_braseado_ternera.jpg" alt="Imagen de Vacío braseado de ternera">
+                <div class="card-content">
+                    <h3 class="card-title">Vacío braseado de ternera</h3>
+                    <p class="card-description">Con puré de zanahoria y papas rústicas y su jugo asado.</p>
+                    <p class="card-price">$8550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Bondiola a la mostaza con batatas caramelizadas al horno -->
+            <div class="card">
+                <img src="img/restaurantes/bondiola_mostaza_batatas.jpg" alt="Imagen de Bondiola a la mostaza con batatas caramelizadas al horno">
+                <div class="card-content">
+                    <h3 class="card-title">Bondiola a la mostaza con batatas caramelizadas al horno</h3>
+                    <p class="card-description">Bondiola braseada en larga cocción a baja temperatura.</p>
+                    <p class="card-price">$7950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Pollo al estragón y queso azul -->
+            <div class="card">
+                <img src="img/restaurantes/pollo_estragon_queso_azul.jpg" alt="Imagen de Pollo al estragón y queso azul">
+                <div class="card-content">
+                    <h3 class="card-title">Pollo al estragón y queso azul</h3>
+                    <p class="card-description">Salsa crema con estragón, queso azul y arroz.</p>
+                    <p class="card-price">$7350</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Suprema de pollo rellena con queso y panceta a la crema de Vino Blanco -->
+            <div class="card">
+                <img src="img/restaurantes/suprema_pollo_rellena_queso_panceta.jpg" alt="Imagen de Suprema de pollo rellena con queso y panceta a la crema de Vino Blanco">
+                <div class="card-content">
+                    <h3 class="card-title">Suprema de pollo rellena con queso y panceta a la crema de Vino Blanco</h3>
+                    <p class="card-description">Con suave Curry y mil hojas de papas, tomate y albahaca.</p>
+                    <p class="card-price">$7750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Lomo a la pimienta flambee -->
+            <div class="card">
+                <img src="img/restaurantes/lomo_pimienta_flambee.jpg" alt="Imagen de Lomo a la pimienta flambee">
+                <div class="card-content">
+                    <h3 class="card-title">Lomo a la pimienta flambee</h3>
+                    <p class="card-description">Papines y queso fundido.</p>
+                    <p class="card-price">$8650</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Lomo a la chapa en emulsión de vino Malbec -->
+            <div class="card">
+                <img src="img/restaurantes/lomo_chapa_emulsion_vino_malbec.jpg" alt="Imagen de Lomo a la chapa en emulsión de vino Malbec">
+                <div class="card-content">
+                    <h3 class="card-title">Lomo a la chapa en emulsión de vino Malbec</h3>
+                    <p class="card-description">Cebollas caramelizadas, morrón quemado a las brasas y papas cubo al romero.</p>
+                    <p class="card-price">$8950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ojo de bife -->
+            <div class="card">
+                <img src="img/restaurantes/ojo_bife.jpg" alt="Imagen de Ojo de bife">
+                <div class="card-content">
+                    <h3 class="card-title">Ojo de bife</h3>
+                    <p class="card-description">Con morrones asados y mozzarella con papas acebolladas.</p>
+                    <p class="card-price">$8950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Milanesa de bife de chorizo -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_bife_chorizo.jpg" alt="Imagen de Milanesa de bife de chorizo">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de bife de chorizo</h3>
+                    <p class="card-description">Morrones asados, bowl de rúcula con parmesano y cebollas moradas, dip dijonaise.</p>
+                    <p class="card-price">$9250</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Salteado de vegetales con dúo de carnes -->
+            <div class="card">
+                <img src="img/restaurantes/salteado_vegetales_duo_carnes.jpg" alt="Imagen de Salteado de vegetales con dúo de carnes">
+                <div class="card-content">
+                    <h3 class="card-title">Salteado de vegetales con dúo de carnes</h3>
+                    <p class="card-description">Con pesca del día y selección de pescado especial del día acompañado con elección de ensalada o guarnición a gusto.</p>
+                    <p class="card-price">$7750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Pesca del día -->
+            <div class="card">
+                <img src="img/restaurantes/pesca_dia.jpg" alt="Imagen de Pesca del día">
+                <div class="card-content">
+                    <h3 class="card-title">Pesca del día</h3>
+                    <p class="card-description">Selección de pescado especial del día acompañado con elección de ensalada o guarnición a gusto.</p>
+                    <p class="card-price">$8950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Platos Principales aquí -->
+        
+        </div>
+        
+    </div>
+
+    <div class="card-container" id="cardContainerRissottos">
+        <div class="section" id="seccionActual">Rissottos</div>
+        <!-- Tarjetas de Rissottos aquí -->
+      
+        
+            <!-- Risotto de hongos patagónicos -->
+            <div class="card">
+                <img src="img/restaurantes/risotto_hongos_patagonicos.jpg" alt="Imagen de Risotto de hongos patagónicos">
+                <div class="card-content">
+                    <h3 class="card-title">Risotto de hongos patagónicos</h3>
+                    <p class="card-description">Arroz Carnarolli graneado en manteca, con hongos de pino ahumados, aceite de oliva y echalote, desglasado con fino vino blanco Chardonnay.</p>
+                    <p class="card-price">$7950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Risotto de camarones -->
+            <div class="card">
+                <img src="img/restaurantes/risotto_camarones.jpg" alt="Imagen de Risotto de camarones">
+                <div class="card-content">
+                    <h3 class="card-title">Risotto de camarones</h3>
+                    <p class="card-description">Arroz graneado al curry, con camarones grillados a la parrilla, salteados en aceite de oliva y especias rústicas, servido con lajas de queso parmesano.</p>
+                    <p class="card-price">$8650</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Risottos aquí -->
+        
+        </div>
+        
+
+    </div>
+
+    <div class="card-container" id="cardContainerPastas">
+        <div class="section" id="seccionActual">Pastas</div>
+        <!-- Tarjetas de Pastas aquí -->
+        <div class="card-container" id="cardContainerPastas">
+            <div class="section" id="seccionActual">Pastas</div>
+        
+            <!-- Spaghettis italianos salsa de camarones -->
+            <div class="card">
+                <img src="img/restaurantes/spaghettis_camarones.jpg" alt="Imagen de Spaghettis italianos salsa de camarones">
+                <div class="card-content">
+                    <h3 class="card-title">Spaghettis italianos salsa de camarones</h3>
+                    <p class="card-description">Salsa fileto, crema, camarones salteados.</p>
+                    <p class="card-price">$7950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ñoquis Pesto alla Nona -->
+            <div class="card">
+                <img src="img/restaurantes/noquis_pesto_nona.jpg" alt="Imagen de Ñoquis Pesto alla Nona">
+                <div class="card-content">
+                    <h3 class="card-title">Ñoquis Pesto alla Nona</h3>
+                    <p class="card-description">Exquisito pesto Genovés con crema.</p>
+                    <p class="card-price">$6950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Fettuccini a la Puttanesca -->
+            <div class="card">
+                <img src="img/restaurantes/fettuccini_puttanesca.jpg" alt="Imagen de Fettuccini a la Puttanesca">
+                <div class="card-content">
+                    <h3 class="card-title">Fettuccini a la Puttanesca</h3>
+                    <p class="card-description">Pasta casera con deliciosa salsa de tomates frescos, ajo, alcaparras, anchoas y aceite de oliva picante.</p>
+                    <p class="card-price">$7250</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Panzzottis de cordero -->
+            <div class="card">
+                <img src="img/restaurantes/panzzottis_cordero.jpg" alt="Imagen de Panzzottis de cordero">
+                <div class="card-content">
+                    <h3 class="card-title">Panzzottis de cordero</h3>
+                    <p class="card-description">Rellenos de sabroso cordero en salsa de hierbas y hongos patagónicos.</p>
+                    <p class="card-price">$7950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Sorrentinos de calabaza -->
+            <div class="card">
+                <img src="img/restaurantes/sorrentinos_calabaza.jpg" alt="Imagen de Sorrentinos de calabaza">
+                <div class="card-content">
+                    <h3 class="card-title">Sorrentinos de calabaza</h3>
+                    <p class="card-description">Deliciosos Sorrentinos acompañados con una crema de verduras salteadas.</p>
+                    <p class="card-price">$7950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ravioles de verdura -->
+            <div class="card">
+                <img src="img/restaurantes/ravioles_verdura.jpg" alt="Imagen de Ravioles de verdura">
+                <div class="card-content">
+                    <h3 class="card-title">Ravioles de verdura</h3>
+                    <p class="card-description">Rellenos de espinaca.</p>
+                    <p class="card-price">$7550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Pastas aquí -->
+        
+        </div>
+        
+    </div>
+
+    <div class="card-container" id="cardContainerDietasEspeciales">
+        <div class="section" id="seccionActual">Dietas Especiales</div>
+        <!-- Tarjetas de Dietas Especiales aquí -->
+
+        
+            <!-- Milanesa de berenjena -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_berenjena.jpg" alt="Imagen de Milanesa de berenjena">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de berenjena</h3>
+                    <p class="card-description">Precio: $4750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Hamburguesa veggie de lentejas y arroz -->
+            <div class="card">
+                <img src="img/restaurantes/hamburguesa_veggie_lentejas_arroz.jpg" alt="Imagen de Hamburguesa veggie de lentejas y arroz">
+                <div class="card-content">
+                    <h3 class="card-title">Hamburguesa veggie de lentejas y arroz</h3>
+                    <p class="card-description">Precio: $5450</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Milanesa de soja con cebolla -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_soja_cebolla.jpg" alt="Imagen de Milanesa de soja con cebolla">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de soja con cebolla</h3>
+                    <p class="card-description">Precio: $5450</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Medallón de espinaca -->
+            <div class="card">
+                <img src="img/restaurantes/medallon_espinaca.jpg" alt="Imagen de Medallón de espinaca">
+                <div class="card-content">
+                    <h3 class="card-title">Medallón de espinaca</h3>
+                    <p class="card-description">Precio: $5750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Medallón de calabaza y choclo -->
+            <div class="card">
+                <img src="img/restaurantes/medallon_calabaza_choclo.jpg" alt="Imagen de Medallón de calabaza y choclo">
+                <div class="card-content">
+                    <h3 class="card-title">Medallón de calabaza y choclo</h3>
+                    <p class="card-description">Precio: $5750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Raviolones de verdura -->
+            <div class="card">
+                <img src="img/restaurantes/raviolones_verdura.jpg" alt="Imagen de Raviolones de verdura">
+                <div class="card-content">
+                    <h3 class="card-title">Raviolones de verdura</h3>
+                    <p class="card-description">Precio: $7550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Sorrentinos de jamón y queso -->
+            <div class="card">
+                <img src="img/restaurantes/sorrentinos_jamon_queso.jpg" alt="Imagen de Sorrentinos de jamón y queso">
+                <div class="card-content">
+                    <h3 class="card-title">Sorrentinos de jamón y queso</h3>
+                    <p class="card-description">Precio: $7550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Pizzeta -->
+            <div class="card">
+                <img src="img/restaurantes/pizzeta.jpg" alt="Imagen de Pizzeta">
+                <div class="card-content">
+                    <h3 class="card-title">Pizzeta</h3>
+                    <p class="card-description">Precio: $4950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Milanesa de pollo -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_pollo.jpg" alt="Imagen de Milanesa de pollo">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de pollo</h3>
+                    <p class="card-description">Precio: $6650</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Vegetarianos aquí -->
+        
+        </div>
+        
+    </div>
+
+    <div class="card-container" id="cardContainerMenuInfantil">
+        <div class="section" id="seccionActual">Menú Infantil <strong >hasta 10 años</strong></div>
+        <!-- Tarjetas de Menú Infantil aquí -->
+    
+        
+            <!-- Menú Infantil -->
+            <div class="card">
+                <img src="img/restaurantes/menu_infantil.jpg" alt="Imagen de Menú Infantil">
+                <div class="card-content">
+                    <h3 class="card-title">Menú Infantil</h3>
+                    <p class="card-description">Incluye postre flan o helado</p>
+                    <p class="card-price">$6250</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Hamburguesa con queso chédar -->
+            <div class="card">
+                <img src="img/restaurantes/hamburguesa_queso_chedar.jpg" alt="Imagen de Hamburguesa con queso chédar">
+                <div class="card-content">
+                    <h3 class="card-title">Hamburguesa con queso chédar</h3>
+                    <p class="card-description">Con papas fritas, papas rústicas o ensalada y aderezos a elección.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Nuggets de pollo -->
+            <div class="card">
+                <img src="img/restaurantes/nuggets_pollo.jpg" alt="Imagen de Nuggets de pollo">
+                <div class="card-content">
+                    <h3 class="card-title">Nuggets de pollo</h3>
+                    <p class="card-description">Con papas fritas, puré de papas o ensalada.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Ñoquis caseros -->
+            <div class="card">
+                <img src="img/restaurantes/noquis_caseros.jpg" alt="Imagen de Ñoquis caseros">
+                <div class="card-content">
+                    <h3 class="card-title">Ñoquis caseros</h3>
+                    <p class="card-description">Salsa fileto, crema de quesos, mixta o boloñesa de carne de ternera.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Spaghettis -->
+            <div class="card">
+                <img src="img/restaurantes/spaghettis_infantiles.jpg" alt="Imagen de Spaghettis">
+                <div class="card-content">
+                    <h3 class="card-title">Spaghettis</h3>
+                    <p class="card-description">Salsa fileto, crema de quesos, mixta o boloñesa de carne de ternera.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Milanesa de ternera -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_ternera_infantil.jpg" alt="Imagen de Milanesa de ternera">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de ternera</h3>
+                    <p class="card-description">Acompañada de papas fritas o puré de papas.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Milanesa de pechuga de pollo -->
+            <div class="card">
+                <img src="img/restaurantes/milanesa_pollo_infantil.jpg" alt="Imagen de Milanesa de pechuga de pollo">
+                <div class="card-content">
+                    <h3 class="card-title">Milanesa de pechuga de pollo</h3>
+                    <p class="card-description">Con papas fritas, puré de papas o ensalada.</p>
+                    <p class="card-price">Incluido en el Menú</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Salchichas con puré -->
+            <div class="card">
+                <img src="img/restaurantes/salchichas_pure_infantil.jpg" alt="Imagen de Salchichas con puré">
+                <div class="card-content">
+                    <h3 class="card-title">Salchichas con puré</h3>
+                    <p class="card-description">Incluido en el Menú</p>
+                    <p class="card-price">$6250</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Menú Infantil aquí -->
+        
+        </div>
+        
+
+    </div>
+
+    <div class="card-container" id="cardContainerPostres">
+        <div class="section" id="seccionActual">Postres</div>
+        <!-- Tarjetas de Postres aquí -->
+        <div class="card-container" id="cardContainerPostres">
+    <div class="section" id="seccionActual">Postres</div>
+
+    <!-- Flan casero -->
+    <div class="card">
+        <img src="img/restaurantes/flan_casero.jpg" alt="Imagen de Flan casero">
+        <div class="card-content">
+            <h3 class="card-title">Flan casero</h3>
+            <p class="card-description">Tradicional postre con caramelo, acompañado de crema o dulce de leche.</p>
+            <p class="card-price">$3250</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tiramisú -->
+    <div class="card">
+        <img src="img/restaurantes/tiramisu.jpg" alt="Imagen de Tiramisú">
+        <div class="card-content">
+            <h3 class="card-title">Tiramisú</h3>
+            <p class="card-description">El postre italiano más famoso elaborado con vainillas, café, chocolate y crema.</p>
+            <p class="card-price">$3750</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Cremas heladas -->
+    <div class="card">
+        <img src="img/restaurantes/cremas_heladas.jpg" alt="Imagen de Cremas heladas">
+        <div class="card-content">
+            <h3 class="card-title">Cremas heladas</h3>
+            <p class="card-description">Helados artesanales elaborados con productos naturales.</p>
+            <p class="card-price">$3550</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Panqueque de frutos del bosque y helado -->
+    <div class="card">
+        <img src="img/restaurantes/panqueque_frutos_bosque_helado.jpg" alt="Imagen de Panqueque de frutos del bosque y helado">
+        <div class="card-content">
+            <h3 class="card-title">Panqueque de frutos del bosque y helado</h3>
+            <p class="card-description">Panqueque con helado de crema americana y salsa de frutos rojos.</p>
+            <p class="card-price">$4350</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Porción de torta -->
+    <div class="card">
+        <img src="img/restaurantes/porcion_torta.jpg" alt="Imagen de Porción de torta">
+        <div class="card-content">
+            <h3 class="card-title">Porción de torta</h3>
+            <p class="card-description">Consulte variedad.</p>
+            <p class="card-price">$4250</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Frozen Baileys -->
+    <div class="card">
+        <img src="img/restaurantes/frozen_baileys.jpg" alt="Imagen de Frozen Baileys">
+        <div class="card-content">
+            <h3 class="card-title">Frozen Baileys</h3>
+            <p class="card-description">Con crocantes de frutos secos.</p>
+            <p class="card-price">$4750</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bombon 1779 -->
+    <div class="card">
+        <img src="img/restaurantes/bombon_1779.jpg" alt="Imagen de Bombon 1779">
+        <div class="card-content">
+            <h3 class="card-title">Bombon 1779</h3>
+            <p class="card-description">Dulce de leche, helado de chocolate y crema.</p>
+            <p class="card-price">$4750</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Don Pedro -->
+    <div class="card">
+        <img src="img/restaurantes/don_pedro.jpg" alt="Imagen de Don Pedro">
+        <div class="card-content">
+            <h3 class="card-title">Don Pedro</h3>
+            <p class="card-description">Helado de crema americana whisky y nueces.</p>
+            <p class="card-price">$4750</p>
+            <button class="play-button" onclick="leerContenido(this)">
+                <i class="material-icons">play_arrow</i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Agrega más tarjetas de Postres aquí -->
+
+</div>
+
+    </div>
+
+    <!-- Categoría de Bebidas -->
+    <div class="card-container" id="cardContainerBebidas">
+        <div class="section" id="seccionActual">Bebidas</div>
+     
+            <div class="section" id="seccionActual">Vinos Tintos</div>
+        
+            <!-- Uxmal Malbec -->
+            <div class="card">
+                <img src="img/restaurantes/uxmal_malbec.jpg" alt="Imagen de Uxmal Malbec">
+                <div class="card-content">
+                    <h3 class="card-title">Uxmal Malbec</h3>
+                    <p class="card-price">$5500</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Uxmal Cabernet Sauvignon -->
+            <div class="card">
+                <img src="img/restaurantes/uxmal_cabernet_sauvignon.jpg" alt="Imagen de Uxmal Cabernet Sauvignon">
+                <div class="card-content">
+                    <h3 class="card-title">Uxmal Cabernet Sauvignon</h3>
+                    <p class="card-price">$5500</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Vinos Tintos aquí -->
+        
+        </div>
+        
+        <!-- Repite la estructura para las secciones restantes -->
+        
+        <div class="card-container" id="cardContainerTragos">
+            <div class="section" id="seccionActual">Tragos</div>
+        
+            <!-- Caipiriña -->
+            <div class="card">
+                <img src="img/restaurantes/caipirina.jpg" alt="Imagen de Caipiriña">
+                <div class="card-content">
+                    <h3 class="card-title">Caipiriña</h3>
+                    <p class="card-price">$3750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Caipiroska -->
+            <div class="card">
+                <img src="img/restaurantes/caipiroska.jpg" alt="Imagen de Caipiroska">
+                <div class="card-content">
+                    <h3 class="card-title">Caipiroska</h3>
+                    <p class="card-price">$3750</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Tragos aquí -->
+        
+        </div>
+        
+        <!-- Repite la estructura para las secciones restantes -->
+        
+        <div class="card-container" id="cardContainerAguasGaseosas">
+            <div class="section" id="seccionActual">Aguas y gaseosas</div>
+        
+            <!-- Agua mineral -->
+            <div class="card">
+                <img src="img/restaurantes/agua_mineral.jpg" alt="Imagen de Agua mineral">
+                <div class="card-content">
+                    <h3 class="card-title">Agua mineral</h3>
+                    <p class="card-price">$1400</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agua saborizadas -->
+            <div class="card">
+                <img src="img/restaurantes/agua_saborizada.jpg" alt="Imagen de Agua saborizadas">
+                <div class="card-content">
+                    <h3 class="card-title">Agua saborizadas</h3>
+                    <p class="card-price">$1400</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Aguas y gaseosas aquí -->
+        
+        </div>
+        
+        <!-- Repite la estructura para las secciones restantes -->
+        
+        <div class="card-container" id="cardContainerCervezas">
+            <div class="section" id="seccionActual">Cervezas</div>
+        
+            <!-- Heineken -->
+            <div class="card">
+                <img src="img/restaurantes/heineken.jpg" alt="Imagen de Heineken">
+                <div class="card-content">
+                    <h3 class="card-title">Heineken</h3>
+                    <p class="card-price">$4550</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Amstel -->
+            <div class="card">
+                <img src="img/restaurantes/amstel.jpg" alt="Imagen de Amstel">
+                <div class="card-content">
+                    <h3 class="card-title">Amstel</h3>
+                    <p class="card-price">$3950</p>
+                    <button class="play-button" onclick="leerContenido(this)">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Agrega más tarjetas de Cervezas aquí -->
+        
+        </div>
+        
+        <!-- Agrega más tarjetas de Bebidas aquí -->
+    </div>
+
+    <!-- Agrega más bloques de card-container para nuevas categorías -->
+
+    <script>
+        function mostrarSeccion(seccion) {
+            // Oculta todas las secciones
+            document.getElementById('cardContainerParaEmpezar').style.display = 'none';
+            document.getElementById('cardContainerEnsaladas').style.display = 'none';
+            document.getElementById('cardContainerPlatos').style.display = 'none';
+            document.getElementById('cardContainerRissottos').style.display = 'none';
+            document.getElementById('cardContainerPastas').style.display = 'none';
+            document.getElementById('cardContainerDietasEspeciales').style.display = 'none';
+            document.getElementById('cardContainerMenuInfantil').style.display = 'none';
+            document.getElementById('cardContainerPostres').style.display = 'none';
+            document.getElementById('cardContainerBebidas').style.display = 'none';
+            // Oculta otras secciones aquí...
+
+            // Muestra la sección actual
+            document.getElementById('cardContainer' + seccion.charAt(0).toUpperCase() + seccion.slice(1)).style.display = 'flex';
+
+            // Actualiza el título de la sección actual
+            document.getElementById('seccionActual').innerText = seccion.charAt(0).toUpperCase() + seccion.slice(1);
+        }
+
+        function volver() {
+            // Implementa la lógica de retorno si es necesario
+            window.history.back();
+        }
+
+        function leerContenido(elementoBoton) {
+    const tarjeta = elementoBoton.closest('.card');
+    const titulo = tarjeta.querySelector('.card-title').textContent;
+    const descripcion = tarjeta.querySelector('.card-description').textContent;
+
+    // Obtener el precio como texto y luego convertirlo a número
+    const precioTexto = tarjeta.querySelector('.card-price').textContent;
+    const precio = parseFloat(precioTexto.replace(/[^\d.-]/g, '')); // Eliminar caracteres no numéricos
+
+    if (isNaN(precio)) {
+        console.error('No se pudo convertir el precio a un número válido.');
+        return;
+    }
+
+    // Supongamos que la tasa de cambio es 1 dólar estadounidense = 100 pesos argentinos
+    const tasaDeCambio = 1;
+    const precioEnPesosArgentinos = precio * tasaDeCambio;
+
+    const contenidoParaReproducir = `${titulo}. ${descripcion}. El precio es ${precioEnPesosArgentinos.toFixed(2)} pesos argentinos.`;
+    function numeroAString(numero) {
+    const unidades = ['', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+    const decenas = ['', 'diez', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+
+    if (numero === 0) {
+        return 'cero';
+    }
+
+    if (numero < 10) {
+        return unidades[numero];
+    }
+
+    if (numero === 10) {
+        return 'diez';
+    }
+
+    if (numero > 10 && numero < 20) {
+        return 'dieci' + unidades[numero - 10];
+    }
+
+    const decena = Math.floor(numero / 10);
+    const unidad = numero % 10;
+
+    return decenas[decena] + (unidad !== 0 ? (' y ' + unidades[unidad]) : '');
+}
+
+function leerContenido(elementoBoton) {
+    // ... (resto del código)
+
+    const contenidoParaReproducir = `${titulo}. ${descripcion}. El precio es ${numeroAString(Math.round(precioEnPesosArgentinos))} pesos argentinos.`;
+
+    // Resto de tu lógica...
+}
+
+
+    // Resto de tu lógica...
+
+
+            const synth = window.speechSynthesis;
+            const voz = new SpeechSynthesisUtterance(contenidoParaReproducir);
+            synth.speak(voz);
+        }
+    </script>
+</body>
+
+</html>
